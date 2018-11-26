@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>StartUp</title>
+</head>
+<script src="../js/vue.js"></script>
+<body>
+    <div id="root">
+        <p>this is not init</p>
+        <p>{{message}}</p>
+        <input type="text" v-model="message">
+    </div>
+</body>
+<script>
+    console.log("hello ,vue version:",Vue.version);
+    var app = new Vue({
+        el:'#root',
+        data:function(){
+            return {
+                message:"hello vue"
+            }
+        }
+    })
+    app.$mount('#root');
+</script>
+</html>
