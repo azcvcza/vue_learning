@@ -11,30 +11,28 @@ Vue.component('top-bar', {
 
     })
     //end top-bar
-    /*
-    Vue.component('card', {
-            template: `<div class="card" :class="'type-' + def.type">
-            <div class="title">{{def.title}}</div>
-            <img class="separator" src="svg/card-separator"/>
-            <div class="description><div v-html="def.description"></div></div> 
-            <div class="note" v-if="def.note"><div v-html="def.note"></div></div>
-            <div v-else>nothing</div>
-            </div>`,
-            props: ['def'],
-        })
-        */
+
 Vue.component('card', {
-    template: `<div class="card" :class="'type-'+def.type" @click="play ">
+        template: `<div class="card" :class="'type-'+def.type" @click="play ">
           <div class="title">{{ def.title }}</div>
           <img class="separator" src="svg/card-separator.svg" />
           <div class="description"><div v-html="def.description"></div></div>
           <div class="note" v-if="def.note"><div v-html="def.note"></div></div>
         </div>`,
-    props: ['def'],
-    methods: {
-        play() {
-            console.log("emit play")
-            this.$emit('play', "red", 40)
+        props: ['def'],
+        methods: {
+            play() {
+                console.log("emit play")
+                this.$emit('play', "red", 40)
+            },
         },
-    },
+    })
+    //end card
+Vue.component('hand', {
+    template: `<div class="hand">
+         <div class="wrapper">
+         <card v-for="card of cards" :key="card.uid" :def="card.def" @play="handlePlay(card)" />
+                 </div>
+    </div>`,
+    props: ['cards'],
 })
