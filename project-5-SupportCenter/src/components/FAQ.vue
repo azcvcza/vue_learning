@@ -4,7 +4,7 @@
     <div class="error" v-if="error">Can't load the questrion</div>
     <Loading v-if="loading"></Loading>
     <section class="list">
-      <article v-for="question of questions">
+      <article v-for="question of questionList">
         <h2 v-html="question.title"></h2>
         <p v-html="question.content"></p>
       </article>
@@ -12,12 +12,15 @@
   </main>
 </template>
 <script>
+import RemoteData from "../mixins/RemoteData.js"
+
 export default {
   data() {
     return {
       questions: [],
       error: null,
-      loading: false
+      loading: false,
+      
     };
   },
   async created() {
@@ -48,6 +51,20 @@ export default {
       this.error = e;
 		}
 		this.loading = false;
+  },
+   mixins:[
+    RemoteData({
+      questionList:'questions'
+    }),
+  ],
+  methods:{
+    async fetchResource(key,url){
+      try{
+        this.$data[key] = await this.$fetch(url);
+      }catch(e){
+        console.log("fetchResouce",e)
+      }
+    }
   }
 };
 </script>
