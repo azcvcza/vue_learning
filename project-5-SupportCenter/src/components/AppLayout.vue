@@ -5,21 +5,21 @@
       <div>My shirt shop</div>
     </header>
     <NavMenu />
-     <router-view />
+    <router-view />
   </div>
 </template>
 
 <script>
-
-
-
-</script>
 import NavMenu from './NavMenu.vue'
 export default{
     components:{
         NavMenu,
     }
 }
+
+
+</script>
+
 <style lang="stylus">
 @import '../style/main';
 </style>
