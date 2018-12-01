@@ -49,13 +49,16 @@ export default function(resources) {
                 if (typeof url === 'function') {
                     this.$watch(url, (val) => {
                         this.fetchResource(key, val)
+                            //console.log("in remotedata,if feres", this.fetchResource(key, val))
                     }, {
                         immediate: true,
                     })
                 } else {
                     this.fetchResource(key, url)
+                        // console.log("in remotedata,else feresour", this.fetchResource(key, val))
                 }
             }
+
         },
     }
 }
