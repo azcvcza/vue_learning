@@ -16,7 +16,7 @@ export async function $fetch(url, options) {
     } else if (response.status === 403) {
         // If the session is no longer valid
         // We logout
-        store.dispatch('logout')
+
     } else {
         const message = await response.text()
         const error = new Error(message)
