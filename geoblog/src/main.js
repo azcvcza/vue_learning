@@ -4,7 +4,7 @@ import VueRouter from 'vue-router';
 import VueFetch, { $fetch } from './plugins/fetch.js'
 import App from './components/App.vue'
 import router from './router'
-//import store from './store'
+import store from './store'
 //import { sync } from 'vuex-router-sync'
 //import VueGoogleMaps, * as GMap from 'vue-googlemaps'
 import * as filters from './filters.js'
@@ -36,7 +36,7 @@ function main() {
         ...App,
         el: '#app',
         router,
-        //store,
+        store,
     })
 }
 

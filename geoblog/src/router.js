@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import Login from './components/Login';
 import GeoBlog from './components/GeoBlog';
 import NotFound from './components/NotFound';
+
 Vue.use(VueRouter);
 
 const routes = [
