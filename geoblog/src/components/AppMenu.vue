@@ -23,18 +23,29 @@
 </template>
 
 <script>
+import {mapGetters,mapActions} from 'vuex';
 export default {
+    computed:mapGetters([
+        'user',
+        'userPicture',
+    ]),
+    methods:mapActions({
+        centerOnUser:'login',
+        logout:'logout',
+    })
+    /*
     computed: {
         user() {
-            return this.$store.state.user;
+            return this.$store.getters.user;
         },
         userPicture() {
-            return null; // TODO
+            return this.$store.getters.userPicture; // TODO
         }
     },
     methods: {
         centerOnUser() {
             // TODO
+            this.$store.dispatch('login');
         },
         logout() {
             // TODO
@@ -45,14 +56,16 @@ export default {
                         displayName:'Mr Cat',
                     }
                 };
+
                 this.$store.commit('user',userData);
                 console.log("in app-menu,logout commit udt",userData);
             }
             else{
-                this.$store.commit('user',null);
+                //this.$store.commit('user',null);
+                this.$store.dispatch('logout');
                 console.log("in app-menu,logout commit null");
             }
         }
-    }
+    }*/
 };
 </script>

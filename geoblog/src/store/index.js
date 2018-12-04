@@ -13,6 +13,25 @@ const store = new Vuex.Store({
         user: (state, user) => {
             state.user = user;
         }
+    },
+    strict: true, //production no use => cause lower performance 
+    getters: {
+        user: state => state.user,
+        userPicture: () => null,
+    },
+    actions: {
+        login({ commit }) {
+            const userData = {
+                profile: {
+                    displayName: 'Mr Cat',
+                },
+
+            }
+            commit('user', userData)
+        },
+        logout({ commit }) {
+            commit('user', null);
+        }
     }
 });
 
