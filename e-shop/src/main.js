@@ -17,7 +17,6 @@ sync(store, router)
 
 async function main() {
     await store.dispatch('init')
-
     new Vue({
         el: '#app',
         router,
@@ -26,4 +25,4 @@ async function main() {
     })
 }
 
-main()
+main();
