@@ -77,13 +77,6 @@ export default {
     StoreItemInfos,
   },
 
-  // SSR
-  asyncData ({ store, route }) {
-    return store.dispatch('item/fetchStoreItemDetails', {
-      id: route.params.id,
-    })
-  },
-
   props: {
     id: {
       type: Number,
@@ -142,11 +135,9 @@ export default {
     },
 
     fetchData () {
-      if (!this.details || this.details.id !== this.id) {
-        this.fetchStoreItemDetails({
-          id: this.id,
-        })
-      }
+      this.fetchStoreItemDetails({
+        id: this.id,
+      })
     },
 
     async submitComment () {
